@@ -1,0 +1,526 @@
+﻿ls --> list files and directories
+ls -l --> list files with long form
+touch filename --> is used to create empty files
+ex: touch file1 file2 file3
+ls -lt --> recently ctrated files will be displayed at the top
+ls -lrt --->recently ctrated files will be displayed at the bottom
+pwd --> present working directory --> to check in which dircteory we are in
+mkdir dirname ---> to create the directory
+cd --> change directory --> to go inside the dir
+cd .. --> to come out of the directory
+ cd ../.. ---2 dir
+ cd ../../.. --3 dir
+cat filename --> to check the content of the file
+
+sudo useradd anup
+sudo passwd anup
+su anup --------- to change user
+
+vi file editor
+
+ecs i ---> insert
+esc:wq! --> save the content of the file and exit
+esc:q! ---> exit file w/o saving the contnet
+esc:%s/linux/unix --- replace particular string in the file
+:2,3s/linux/unix
+:1s/linux/unix
+esc dd --->delete line in the vi
+esc :5 --->move the cursor to the 5th line
+esc:set nu --> used to set the line num in the vi
+esc:set nonu ---> remove the line num
+esc:/hello --> to search the particular word in the vi.
+========================================================================
+
+> (redirect)  used to write output of command to a file .
+
+ex: ls -lrt > log1(filename)
+
+>> (append)--> (attach to the end of the file) attach output of command to file it will not overwrite the content of the file
+
+ls -lrt >> log1
+
+==========================================================================
+du -sh filename ----used to check the size of the file
+du -sh file1 file2 file3 ----- to check the size of multiple file
+du -sh *  ---- to check the size of all files
+du ----disk usage
+=====================================================================
+df -h ---- used to check the disk size
+df -h . -----used to check the current disk size
+df ---- disk free
+h ---human readbe format
+
+======================================================
+history ---- it is used to show the entire worked path
+======================================================================
+copy command --
+ 
+cp file1 file2 ----used to copy from one file to another
+cp fie1 dir  ---------- used to copy file to dir
+cp -r dir1 dir2 ----- used to copy from one directory to another
+
+======================================================================
+
+move command or rename command ---move file from one place to another or renaming file( source wil get deeted ony destination will be there)
+ mv file1 file2 --- used to rename file
+ mv file1 dir ---- move file to dir
+ mv file1 file2 file3 dir --- move mutiple to dir
+ mv dir1 dir2 ---- move one dir to another
+=====================================================================================
+
+free -h ------ is used to check system memory
+
+================================================================================================
+
+word count -- wc --used to count the number of ines ,words ,characters
+
+wc filename
+wc -l filename ---lines only
+wc -w filename --- words only
+wc -c filename --- character only
+
+=========================================================================================
+
+chmod --- is used to change the permission of the file
+chmod 777 filename --- full permission to file
+rw- user   rw-  group      r-- others  chmod 777
+r --4 --read
+w =--2 -- write
+x ---1 --- execute
+- ---0
+
+Chmod command 
+Used to change permission of a file or directory 
+-rwxr--r-- 
+-=file or directory or link, rwx=user,r--=group,r--=others 
+R=read,w=write,x=execute 
+It will be in binary format 
+Chmod 777 filename – all permission to a file 
+Chmod –R 777 dir – all permission to a dir 
+Remove or add permission 
+Chmod u+w file –user and write permission to a file 
+Group and other full permission 
+Chmod g+rwx,o+rwx file 
+Chmod g-w,o-w file 
+Chmod a+rwx file  o Chown command 
+
+
+=======================================================================================
+
+grep -- is used to search the word or patteren or string in a file.
+
+grep -i "string" filename ---  -i is case insensitive
+
+grep -i -e "code" -e "true" -e "cheat" file1 ---- to search multiple pattern 
+
+grep -w "true" file1 ---- print all lines if specified word is present
+
+grep -i "^word" file1 ----- print all lines in a file if line starts with specified pattren
+
+grep -i "e$" file1 ---print all lines in a file if line ends with specified pattren
+
+grep -c "true" file1 ----to count in how many lines the word or pattern is present
+
+grep -v  "true" file1 --- print all the lines except the lines which have specific pattern
+
+===============================================================================================
+
+head -- used to print first part of file
+head -2 file1 --- print the first 2 ines
+head -15 file1 --- print the first 15 lines
+head file1 --- print first 10 lines by default
+
+=================================================================================================
+
+tail ---used to print last part of file
+
+tail -2 file1---   print the last 2 ines
+tail -5 file1 ---  print the last 2 ines
+tail file1   ---  print last 10 lines by default
+
+===============================================================================================
+| pipe --- 
+
+head -5 file1 | tail -1  --- wil display only 5th line
+
+ head -6 file1 | tail -1
+
+head -10 file1 | tail -5 --- print from 5 to 10 line
+
+tail -2 file1 | head -1  --- print last 2nd line of the file
+
+head -8 file1 | tail -1 | wc -c  ----count the number of characters in the 8th ine
+================================================================================================
+
+sed 
+sed 's/inux/windows/g' fiename ----repace string in file
+sed '2s/inux/windows/g' fiename ---- replace only in 2nd line
+sed '5,10s/inux/windows/g' fiename ----replace from 5th - 10th line
+sed '$s/inux/windows/g' fiename --- replcae in last line
+sed '5,$s/inux/windows/g' fiename ---- replasce from 5-last ine
+
+
+delete
+
+sed '2d' filename -- delete 2nd line
+
+sed '5,10d' filename --- delete 5-10th line
+
+sed '$d' filename --- delete last  line
+
+
+to dispay the particular line
+
+sed -n '2p' filename --- print 2nd line
+sed -n '5,10p' filename  --- print 5-10th line
+
+sed -n '5,$p' filename ---- print 5-last line
+
+sed -n '$p' filename --- print last ine
+
+=====================================================
+how do you check server is up and running
+
+ping ipaddress or servername (ex: www.google.com)
+
+=====================================================
+
+how do you check which proceess is taking more memory
+
+top
+
+=====================================================
+how do you check from long the system is up and running
+
+uptime
+
+
+====================================================================================
+
+rm filename --- is used to delete the file
+rm file1 file2 file3 ---- is used to delete the multiple file
+rm * ---- used to delete everything
+
+rm -rf dir name ---- is used  to delete the directory
+rm -rf  tmp1 tmp tmp3 ----to delete multiple dir
+rm -rf * ---used to delete everything
+========================================================================================
+
+cat -b filename --- it will show the number of lines
+
+======================================================================================
+
+cut ---> used to cut file columnwise 
+cut -d " " -f1 data
+
+d ---> delimiter
+
+f1---> 1st field
+f2--> 2nd field
+---------------------------------------------------------
+
+AWK  is powerful command, we can use to cut file rowise and columnwise. but here we use awk to cut file columnwise.
+
+awk -F " " '{print $1}' data
+
+F--> field separator
+
+$1 --> 1st field
+$2 --> 2nd filed
+
+
+awk -F " " '{print $NF}' data  --> last column of file 
+
+NF ---> number fields
+
+
+awk -F " " '{print $(NF-1)}' data ---> 2nd last cloumn of file
+
+
+last colum from ls -lrt 
+ls -lrt | awk -F " " '{print $NF}'
+===================================================================================================================
+awk 'NR >= 3 && NR <= 5 {print $2, $3}' - to print row wise
+
+input 	1 2 3 4
+	2 3 4 5
+	3 a b 6
+	4 c d 7
+	5 e f 8
+	6 7 8 9
+
+output
+a b
+c d
+e f
+===================================================================================================================
+ps --- used to check the current running process on a system
+
+ps -ef  --- list the process
+
+ps -ef | grep "processname" ----
+
+==============================================================
+
+who -----how many users looged into the system
+who | wc -l ---- to count users
+whoami----to check logged as who
+hostname --------it will show the servername or ipaddress
+date -----to check the present date
+tac filename-----to print the file in reverse order
+==================================================================
+
+More and less command 
+More filename – used to display content of a file page wise, can scroll done but cant up 
+Less filename-used to display content page wise, we can scroll up and down
+
+=========================================================================================
+
+	Maxdepth command 
+How do you restrict recursive search for the dir search in find command Find . –iname ―test‖ –maxdepth 2 
+
+find -maxdepth 3 -type f -name "f*"
+==============================================================================================================
+Xargs - extended arguments	
+Is used to pass as a args to a next command 
+Output of one command will be passing as args to next command
+
+========================================================================================================
+
+	Soft link and hard link 
+Is a shortcut to a file, if you make any changes in original file it gets reflected in the link, if I delete original file soft link wont work. 
+Ln –s filename softlinkname  
+U can create a file or dir 
+ 
+Hard link 
+Ln filename hardlinkname 
+Is a shortcut to a file, if you make any changes in original file it gets reflected in the link, and if I delete the original file, hard link wil work because it points to inode of a file. 
+
+df -i  filename ------------ to check inode
+=======================================================================================
+
+Ping 
+Is used to check whether the server is up and down 
+Ping ip or servername
+=========================================================================
+
+su 
+super user su –root or su – used to login as root user root has highest permission o sudo 
+superuser does 
+is used to run command with root permissions 
+sudo username 
+=======================================================================================
+
+uname –a 
+complete information about linux 
+uname –v 
+version and time of linux 
+
+uname -r
+kernel version
+
+=======================================================================
+
+o	kill used to stop process 
+-9 is a special signal to terminate that process 
+Kill -9 PID 
+Killall -9 pname 
+Sudo service servername/Pname stop 
+Sudo service servername/Pname start 
+Sudo service servername/Pname restart 
+Pkill -9 –u ―username‖ – stop process started by particular user 
+Ps –u username or ps –ef | grep ―system32‖ – list process started by particular user 
+
+===============================================================================
+
+How do you run script or command in a background we need to see "&" at the end of the command.
+
+=====================================================================================
+
+How do you run process in foregrounf 
+Fg PID 
+
+=======================================================================
+
+tee used to write output of a command to a file as well as display on console/prompt cat log | tee log1 
+ls –lrt | tee –a log used to append to log 
+
+=====================================================================================
+o	Echo command 
+Print statement  
+Echo –e HI \n HELLO
+
+=================================================================================
+
+Find command 
+Is used to find the location of a file/dir. Find is a automatic recursive, it searches in sub-directories automatically. 
+Find. –name ―filename‖ 
+Find . –name ―log‖ - . is pwd 
+Find /home/ -name ―log‖ 
+Find –iname ―log‖ 
+Find /home/mobaxterm –iname ―log‖ 
+Find . –iname –type f ―log‖ 
+Find . –type f –iname ―log‖ 
+Find . –iname –type d ―log‖ 
+Find . –type d –iname ―log‖ 
+-mtime –is last modified time 
+Find . –type f –mtime +90 
+Find . –type d –mtime +90 
+Find . –mtime +90 
+Find . –type f –mtime -90 
+Find . –type d –mtime -90 
+Find . –mtime -90 
+
+Empty and non-empty 
+Find . –type f -empty 
+Find . –type d -empty 
+Find . -empty 
+Find . –type h –empty :h or L is a link 
+Find the permission of a files 
+Find . –type f –perm 0777 
+Find . –type d –perm 0644 
+Find . –perm 0754 
+Nonempty 
+Find . –type f –not –empty 
+Find . –type f  ! -empty 
+
+============================================================
+
+	Umask  
+Is used to set default permission on a system. It is reverse of chmod. 
+Umask 000 –who were creates the file on a system will have all permissions. 
+Umask 777 means- no permission to a file.
+
+umask ---> to check the defaut umask value
+umask -S ----> to describes umask value
+
+================================================================
+
+Ssh ---> connect one server to another server.
+It is used to convert to remote server .
+
+ssh -i key/mykey1.pem.pem ec2-user@private ip of 2nd inastance
+
+================================================================
+SCP - Secure Copy protocol - it is used to copy the files from one server to another server. If server goes down, content will be resumed from where it has been paused.
+scp -p file1.txt destintion_user@destination_ip_address:home/ec2-user/directory -----> it will paste the content from source to destination
+scp -p file2.txt destintion_user@destination_ip_address:home/ec2-user/directory    home/ec2-user/  ---------------> used to paste the file to local machine from remote server
+scp -r -C directory destintion_user@destination_ip_address:home/ec2-user/directory -----> it will paste the directory from source to destination
+scp -r -C directory destintion_user@destination_ip_address:home/ec2-user/directory    home/ec2-user/  ---------------> used to paste the directory to local machine
+{
+
+NAME
+     scp — secure copy (remote file copy program)
+
+SYNOPSIS
+     scp [-12346BCpqrTv] [-c cipher] [-F ssh_config] [-i identity_file] [-l limit] [-o ssh_option] [-P port] [-S program] [[user@]host1:]file1 ...
+         [[user@]host2:]file2
+
+[-c cipher] [-F ssh_config] [-i identity_file] [-l limit] [-o ssh_option] [-P port] [-S program] [-r recursive]
+
+DESCRIPTION
+     scp copies files between hosts on a network.  It uses ssh(1) for data transfer, and uses the same authentication and provides the same secu‐
+     rity as ssh(1).  scp will ask for passwords or passphrases if they are needed for authentication.
+
+
+}
+
+rsync - remote sync - 
+
+sudo yum install rsync
+
+vi /etc/ssh/sshd_config
+
+rsync -avzhe ssh instance1 ec2-user@ip-172-31-31-83:/home/ec2-user/ --------------------> used to transfer file to another server
+
+rsync -avzhe ssh ec2-user@ip-172-31-31-83:/home/ec2-user/ PRACTICE ------------------- to copy the file to local from remote
+======================================================================
+
+Netstat 
+Used to check free ports on a system. 
+List all listening ports tcp or udp 
+Netstat –a 
+Netstat –at 
+Netstat –au 
+Netstat –lt 
+Netstat -lu 
+Netstat -ie
+=======================================================
+
+ifconfig ---> to check the ip address
+=====================================================
+
+.bashprofile / .bashrc 
+Vi .bashrc 
+Echo ―hello gm‖ 
+Pwd 
+Esc:wq! 
+bashrc-->It is an auto execute file which gets executes command  automatically each time when we open new session and also each time when we login to the system
+
+bashprofile ---->It is an auto execute file which gets executes command  automatically each time when we login to the system.
+
+====================================================================================================
+
+SSH - Secure Shell or Secure Socket Shell
+
+SSH is a network protocol that enables users to access a server in a secure way over an unsecured network
+
+Defualt Port:
+
+SSH --> 22
+
+telnet -->23
+
+Apache Tomcat --> 8080
+
+Jenkins --> 8080
+
+HTTP --> 80
+
+HTTPS --> 443
+
+Port: A port is a virtual point where network connections start and end
+
+stickybit enable --> chmod +t <filename>
+
+stickybit disable --> chmod -t <filename>
+
+nohup sleep 30 ---> it will resume the scripts to run after 30 seconds
+
+load average ---> load avg is a avg system load in a linux server for a defined period of time  (1,min 5m 15m)
+
+zombie process ---> zombie process is a process who execution is completed but it still has a entry in the process table
+
+PATH=$PATH:<destination path> ---> to set a path in linux
+ 
+sftp --> to copy files from server to our local machine
+ 
+get ---> to copy files to our local machine
+ 
+put ---> to copy files to server
+
+
+
+chown - to transfer the ownership of the file/dir
+
+chown owner_name file_name
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
